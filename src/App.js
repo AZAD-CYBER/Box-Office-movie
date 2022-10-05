@@ -8,8 +8,6 @@ import Starred from "./Pages/Starred";
 function App() {
   return (
     <div>
-      <Navs />
-
       <Switch>
         <Route exact path="/">
           <Home />
