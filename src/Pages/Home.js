@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import MainPageLayout from "../components/MainPageLayout";
+import { apiGet } from "../misc/config";
 import ShowGrid from "../components/show/ShowGrid";
 import ActorGrid from "../components/actor/ActorGrid";
-import { apiGet } from "../misc/config";
 
 const Home = () => {
   const [input, setInput] = useState("");
@@ -10,7 +10,6 @@ const Home = () => {
   const [searchOption, setSearchOption] = useState("shows");
 
   const isShowsSearch = searchOption === "shows";
-
   const onSearch = () => {
     apiGet(`/search/${searchOption}?q=${input}`).then((result) => {
       setResults(result);
@@ -43,6 +42,7 @@ const Home = () => {
         <ActorGrid data={results} />
       );
     }
+
     return null;
   };
 
